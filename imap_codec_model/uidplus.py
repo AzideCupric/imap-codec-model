@@ -1,17 +1,14 @@
-from typing import Annotated
-from collections.abc import Sequence
-
-from msgspec import Meta
-from imap_codec_model.core import Tagged
+from imap_codec_model.core import NoZeroUint, TaggedBase, Vec1
 
 
-class Single(Tagged):
-    codec_data: Annotated[int, Meta(gt=0)]
+class Single(TaggedBase):
+    codec_data: NoZeroUint
 
-class Range(Tagged):
-    codec_data: tuple[Annotated[int, Meta(gt=0)], Annotated[int, Meta(gt=0)]]
+class Range(TaggedBase):
+    codec_data: tuple[NoZeroUint, NoZeroUint]
 
 
 UidElement = Single | Range
 
-UidSet = Sequence[UidElement]
+UidSet = Vec1[UidElement]
+"""Uid集合，至少包含一个UidElement"""

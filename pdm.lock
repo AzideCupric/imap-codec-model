@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:5d4cd6924934d5a53965efdb8d65c5224cd83b62e76d8587330978a7b6684553"
+content_hash = "sha256:d0f675d4fe099e4ac2736e89e502a1b5ee6442e98a294ca5b4b48024bca87d7d"
 
 [[metadata.targets]]
 requires_python = ">=3.10"
@@ -75,6 +75,67 @@ groups = ["dev"]
 files = [
     {file = "identify-2.6.0-py2.py3-none-any.whl", hash = "sha256:e79ae4406387a9d300332b5fd366d8994f1525e8414984e1a59e058b2eda2dd0"},
     {file = "identify-2.6.0.tar.gz", hash = "sha256:cb171c685bdc31bcc4c1734698736a7d5b6c8bf2e0c15117f4d469c8640ae5cf"},
+]
+
+[[package]]
+name = "imap-codec"
+version = "0.1.0"
+requires_python = ">=3.8"
+summary = "Python bindings for imap-codec Rust crate"
+groups = ["default"]
+files = [
+    {file = "imap_codec-0.1.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:3e6c2754f66614a961b69fa432350b5a9b4100bbfe775cd2f136a7a7d9327d67"},
+    {file = "imap_codec-0.1.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e920187cbefab8f921ade4acac91f00fdd9223a73ec56724db4e652c11b46494"},
+    {file = "imap_codec-0.1.0-cp310-cp310-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:05b1d073d0e00d4877c85746fc0a8ce016e9281dee384b4a721994e96650eb07"},
+    {file = "imap_codec-0.1.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:6b79f387ef72384e91a8d2f5745e18c2a33d4a17060a22556162664e62d8a5ec"},
+    {file = "imap_codec-0.1.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:896661e91184c01fbf6bd75310060952e9340710996835c0bc88e13ea58dd4b0"},
+    {file = "imap_codec-0.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:754fb3825c4798fa94cf2c84f339c6baabce6a1c699497d0548b8b88d93ed7ec"},
+    {file = "imap_codec-0.1.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:e4f7fac7dae257549e25a197f339e0b80d7d8e567baf7da26298f39f465e3b89"},
+    {file = "imap_codec-0.1.0-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:d40df9c1263baa4ef3b116732134808d846e3f7a9dd07aa81bd7a04bc28160a1"},
+    {file = "imap_codec-0.1.0-cp310-cp310-musllinux_1_2_armv7l.whl", hash = "sha256:081d993c95e0f29b193c956675c84942b9ec4b015ec1d43e80286b16d812c596"},
+    {file = "imap_codec-0.1.0-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:132e8d09ea873010ef64c038c1f2be0c1b745693fa60b8a7113eeed0cce479bb"},
+    {file = "imap_codec-0.1.0-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:abdc39fcbdb5a2e83ed7b4381f25fe304bc894053351e08fb1ed11342fbd353a"},
+    {file = "imap_codec-0.1.0-cp310-none-win32.whl", hash = "sha256:2ec712cd9c8d9b994bc9c0be70d08224a84ea1de46e4d70f9a6487b6e6bc5369"},
+    {file = "imap_codec-0.1.0-cp310-none-win_amd64.whl", hash = "sha256:baf79aaed9c825b2c43a64b8810ac99080b07d6b1057ba25629ffc5286550eab"},
+    {file = "imap_codec-0.1.0-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:d40a5b27465d1a1644f9d53f6c51de5aed2f2ba4a3a337fb206477753f9ce2df"},
+    {file = "imap_codec-0.1.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:2a6f5cb85e00c4df7a3b50eefecc83872bb503b2a9078f0fbe8c0ff6782da2ca"},
+    {file = "imap_codec-0.1.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:40f36110f35d9d386fd7e990805b62bcaf06acbcb751f6e48b4f3c6dfc9da2ba"},
+    {file = "imap_codec-0.1.0-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:f9d0d7dda3ee5b01df7f327011ab6a130d0804b2cd75b8b052cc5eddbb34ec88"},
+    {file = "imap_codec-0.1.0-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:befe0e2287cc8c607b5f906c83ccc1aa12a130dd4936c61f39be12ce64a458ea"},
+    {file = "imap_codec-0.1.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:19bbdffa1b2686b614dea673a701180145622149f84a5ce052e899de76f470e8"},
+    {file = "imap_codec-0.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:66d78c9a66777d387de7c27fbf6ac2f823348857712b47391b4d303f6e4969e1"},
+    {file = "imap_codec-0.1.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:6b5381a527a7dbc611f6ab248aac6b1ef673801269a5af2f36518b2df81d3e05"},
+    {file = "imap_codec-0.1.0-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:21ece48445febff60ea84d8166c2f8ec5ce44cdd8f815010e22bfc6155ae1ea6"},
+    {file = "imap_codec-0.1.0-cp311-cp311-musllinux_1_2_armv7l.whl", hash = "sha256:4fa779d7838ddaa31171bb6522621ef2c59cfae456d818a4f6d97a20c7d24ba5"},
+    {file = "imap_codec-0.1.0-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:52971ac2bead017288e819005de982efdacc947e89faaec85e4bdce400092ece"},
+    {file = "imap_codec-0.1.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:d32cdef6487ff7b86ecb2330e07f3c4127d96c54b66baff5b87f7ffb4d767c65"},
+    {file = "imap_codec-0.1.0-cp311-none-win32.whl", hash = "sha256:c0b70e64aff08eae893ef1d4181b6db0a7ec0efaa96b9179fa427a6d590fdd15"},
+    {file = "imap_codec-0.1.0-cp311-none-win_amd64.whl", hash = "sha256:55c96de42c9b32726d7c68f451042bb651de750f37898cf3dfa1451c02086fe8"},
+    {file = "imap_codec-0.1.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:6e1459d9828479ac11929a2cede3cc7f1b20290dca0edaf9617ae9878871ea64"},
+    {file = "imap_codec-0.1.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:a374c6a19061e68a3bd1d84a8aa00cfea76d2f4dc294df8e0e51d1dacee91a73"},
+    {file = "imap_codec-0.1.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:971b4e567fb8e935d102b082c20109241344eee9b1f5a8c888fa5c1665f74fdb"},
+    {file = "imap_codec-0.1.0-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:7720ae6f2cdd0fd9cc3071048cb5bdaef121c06c7740b62fbfe49bbaf597e693"},
+    {file = "imap_codec-0.1.0-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:ab0b3c0851abf8d1704aed0570bfae9311613b068bf1a8ae9915870f61d376ba"},
+    {file = "imap_codec-0.1.0-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:436fd3c98087a2ffa56de56a924b5d4a40e9634b70e8ebf176497c707a59c547"},
+    {file = "imap_codec-0.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:372ea2ab7f8efef25c75291c0f754a3c29477f992daaf040b022d3faff1f1080"},
+    {file = "imap_codec-0.1.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:766f569e6b7215102883322aefe8fb53bbd851781f8446fe7a1abf58f358f302"},
+    {file = "imap_codec-0.1.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:a6e521c22fa72d9cb0ccc3e0ddcc3012ae6ad75c7630f76e8359806761dbcc40"},
+    {file = "imap_codec-0.1.0-cp312-cp312-musllinux_1_2_armv7l.whl", hash = "sha256:4af57ac9444c85180ad62fb4aebdb170244f2d3f165baf25d2e5e969aff2c68b"},
+    {file = "imap_codec-0.1.0-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:a5304bdb6ddb134e6b7af195fddce77a65460fb4f1bf142b6a5e2bdc8392c582"},
+    {file = "imap_codec-0.1.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:51de49bcf951d365c5226cdcd4fb64e978e849b207801b885a9e91f959185a36"},
+    {file = "imap_codec-0.1.0-cp312-none-win32.whl", hash = "sha256:910ce6f3a7662c3b246575047ebcd2b0d484ac683241ae6640e0d9e6386e5617"},
+    {file = "imap_codec-0.1.0-cp312-none-win_amd64.whl", hash = "sha256:318c8a36fe51af41efd9591bd889a80885ec5faee7d1df209f3c13ce5cf7817a"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9be2f69d7788e5495b34545620657872b058edb063201bd2e8930d016b4dd25b"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:081decf96f600b6887e40829539aa700f8b13b49345aa5ed0fc8b2d0e9c81fab"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:0fd4897281fba79b5f9f75faf44e8b24e85c9a2808be77489b9a21d48c001f52"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:3025645419fafa855356df745075f23ee74717ec26439ed796816049b49ff64b"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fe1d9079db26dc6ebe75debcf9846bae8df2b4bbbf4cd79723821738665fc80c"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:17e283aa704699f2cd3dea0c7a3d5e40cc0b4a042a052e935c8b110075832236"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-musllinux_1_2_aarch64.whl", hash = "sha256:ce2535aef53a458d6bc90bb10cbac555ef0904e8d69abcce1e148ebd58ffa010"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-musllinux_1_2_armv7l.whl", hash = "sha256:ef842ed4ce322a928ce814d7ff86545abc9149dbb031a8b5c45c0868b96a9dd1"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-musllinux_1_2_i686.whl", hash = "sha256:d72fc02bd9b6b11e3f9e9ab0fbfca57847d53e1cdf166f3f3aaee1de89d2d5fa"},
+    {file = "imap_codec-0.1.0-pp310-pypy310_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:2210af4d1a41432523c8f9b2826531e2735d95963217ae64a082822d486801dd"},
+    {file = "imap_codec-0.1.0.tar.gz", hash = "sha256:c97328b68f8d9f3c4aae202795961b880a58e381b5df730576f6d51672fdcb74"},
 ]
 
 [[package]]

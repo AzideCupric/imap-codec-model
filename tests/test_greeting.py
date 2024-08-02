@@ -1,7 +1,9 @@
 import pytest
 import msgspec
 
-from imap_codec_model.response import Greeting
+from imap_codec import GreetingCodec, Greeting as GreetingCodecModel
+
+from imap_codec_model.greeting import Greeting
 from imap_codec_model.utils import reshape_codec_dict, reduce_codec_model
 
 
@@ -33,4 +35,9 @@ def test_greeting_parse(case):
     greeting_dict = reshape_codec_dict(case)
     greeting = msgspec.convert(greeting_dict, Greeting)
 
-    assert reduce_codec_model(msgspec.to_builtins(greeting)) == case
+    res = reduce_codec_model(msgspec.to_builtins(greeting))
+    assert GreetingCodecModel.from_dict(res) == GreetingCodecModel.from_dict(case)
+    assert (
+        GreetingCodec.encode(GreetingCodecModel.from_dict(res)).dump()
+        == GreetingCodec.encode(GreetingCodecModel.from_dict(case)).dump()
+    )

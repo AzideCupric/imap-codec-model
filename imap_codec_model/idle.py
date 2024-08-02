@@ -1,0 +1,1 @@
+IdleDone = tuple[()]

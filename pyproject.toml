@@ -8,6 +8,7 @@ authors = [
 dependencies = [
     "msgspec>=0.18.6",
     "typing-extensions>=4.12.2",
+    "imap-codec>=0.1.0",
 ]
 requires-python = ">=3.10"
 readme = "README.md"
