@@ -1,5 +1,5 @@
 from typing import Literal
-from .code import TaggedBase, StrOther
+from .core import TaggedBase, StrOther
 
 Utf8Kind = Literal["Accept", "Only"]
 

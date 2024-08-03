@@ -26,14 +26,16 @@ class Quoted(TaggedBase):
 LiteralMode = Literal["Sync", "NonSync"]
 
 class LiteralType(TaggedBase, tag="Literal"):
-    class LiteralVal(Base):
-        data: Sequence[int]
-        mode: LiteralMode
+    data: Sequence[int]
+    mode: LiteralMode
 
-    codec_data: LiteralVal
 
 IString = Quoted | LiteralType
-AString = Atom | IString
+
+class String(TaggedBase):
+    codec_data: IString
+
+AString = Atom | String
 NString = IString | None
 
 Charset = Atom | Quoted

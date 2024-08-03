@@ -2,13 +2,13 @@ from typing import Literal
 
 from .core import TaggedBase
 
+class FlagExtension(TaggedBase, tag="Extension"):
+    codec_data: str
+
+class Keyword(TaggedBase, tag="Keyword"):
+    codec_data: str
+
 class Flag(TaggedBase):
-    class Extension(TaggedBase):
-        codec_data: str
-
-    class Keyword(TaggedBase):
-        codec_data: str
-
     codec_data: (
         Literal[
             "Answered",
@@ -17,7 +17,7 @@ class Flag(TaggedBase):
             "Flagged",
             "Seen",
         ]
-        | Extension
+        | FlagExtension
         | Keyword
     )
 
@@ -26,10 +26,7 @@ FlagPerm = Flag | Literal["Asterisk"]
 FlagFetch = Flag | Literal["Recent"]
 
 class FlagNameAttribute(TaggedBase):
-    class Extension(TaggedBase):
-        codec_data: str
-
-    codec_data: Literal["Noinferiors", "Noselect", "Marked", "Unmarked"] | Extension
+    codec_data: Literal["Noinferiors", "Noselect", "Marked", "Unmarked"] | FlagExtension
 
 StoreType = Literal[
     "Replace",

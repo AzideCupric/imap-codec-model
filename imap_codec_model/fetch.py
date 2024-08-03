@@ -2,10 +2,12 @@ from collections.abc import Sequence
 from datetime import datetime
 from typing import Literal
 
+from imap_codec_model.binary import Literal8
+
 from .flag import FlagFetch
 from .envelope import EnvelopeStuct
 from .body import BodyStructureType
-from .core import AString, LiteralType, NString, NoZeroUint, TaggedBase, Base, Uint, Vec1
+from .core import AString, NString, NoZeroUint, TaggedBase, Uint, Vec1
 
 
 PartType = Vec1[NoZeroUint]
@@ -43,12 +45,9 @@ class Body(TaggedBase):
 
 
 class BodyExt(TaggedBase):
-    class BodyExtVal(Base):
-        section: Section | None
-        origin: Uint | None
-        dara: NString
-
-    codec_data: BodyStructureType
+    section: Section | None
+    origin: Uint | None
+    dara: NString
 
 
 class BodyStructure(TaggedBase):
@@ -88,19 +87,13 @@ class Uid(TaggedBase):
 
 
 class Binary(TaggedBase):
-    class BinaryVal(Base):
-        section: Sequence[NoZeroUint]
-        value: NString | LiteralType
-
-    codec_data: BinaryVal
+    section: Sequence[NoZeroUint]
+    value: NString | Literal8
 
 
 class BinarySize(TaggedBase):
-    class BinarySizeVal(Base):
-        section: Sequence[NoZeroUint]
-        size: Uint
-
-    codec_data: BinarySizeVal
+    section: Sequence[NoZeroUint]
+    size: Uint
 
 
 MessageDataItem = (
@@ -119,5 +112,44 @@ MessageDataItem = (
     | BinarySize
 )
 
+
+class NameBodyExt(TaggedBase, tag="BodyExt"):
+    section: Section | None
+    partial: tuple[Uint, NoZeroUint] | None
+    peek: bool
+
+
+class NameBinary(TaggedBase, tag="Binary"):
+    section: Sequence[NoZeroUint]
+    partial: tuple[Uint, NoZeroUint] | None
+    peek: bool
+
+
+class NameBinarySize(TaggedBase, tag="BinarySize"):
+    section: Sequence[NoZeroUint]
+
+
+MessageDataItemName = (
+    Literal[
+        "Body",
+        "BodyStructure",
+        "Envelope",
+        "Flags",
+        "InternalDate",
+        "Rfc822",
+        "Rfc822Header",
+        "Rfc822Size",
+        "Rfc822Text",
+        "Uid",
+    ]
+    | NameBodyExt
+    | NameBinary
+    | NameBinarySize
+)
+
+
 class Macro(TaggedBase):
     codec_data: Literal["Fast", "Full", "All"]
+
+
+MacroOrMessageDataItemNames = Macro | Sequence[MessageDataItemName]

@@ -5,4 +5,4 @@ from .response import Response as Response
 from .response import Data as Data
 from .response import Status as Status
 from .response import CommandContinuationRequest as CommandContinuationRequest
-from .idle import IdleDone as IdleDone
+from .extensions.idle import IdleDone as IdleDone

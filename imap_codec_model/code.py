@@ -1,12 +1,12 @@
 from typing import Literal
 from collections.abc import Sequence
 
-from imap_codec_model.compress import CompressionAlgorithm
+from .capability import CapabilityType
 
 from .flag import FlagPerm
-from .metadata import MetadataCode
-from .uidplus import UidSet
-from .core import Base, NoZeroUint, TaggedBase, Charset, StrOther, Vec1
+from .extensions.metadata import MetadataCode
+from .extensions.uidplus import UidSet
+from .core import NoZeroUint, TaggedBase, Charset, Vec1
 
 CodeLiteral = Literal[
     "Alert",
@@ -23,86 +23,7 @@ CodeLiteral = Literal[
 
 
 class BadCharset(TaggedBase):
-    class Allowed(Base):
-        allowed: Sequence[Charset]
-
-    codec_data: Allowed
-
-AuthMechanism = (
-    Literal[
-        "Plain",
-        "Login",
-        "OAuthBearer",
-        "XOAuth2",
-        "ScramSha1",
-        "ScramSha1Plus",
-        "ScramSha256",
-        "ScramSha256Plus",
-        "ScramSha3_512",
-        "ScramSha3_512Plus",
-    ]
-    | StrOther
-)
-
-class Auth(TaggedBase):
-    codec_data: AuthMechanism
-
-
-class Compress(TaggedBase):
-    class Algorithm(Base):
-        algorithm: CompressionAlgorithm
-
-    codec_data: Algorithm
-
-Resource = Literal["Storage", "Message", "Mailbox", "AnnotationStorage"]
-
-class QuotaRes(TaggedBase):
-    codec_data: Resource | StrOther
-
-
-class Sort(TaggedBase):
-    codec_data: Literal["Display",] | StrOther | None
-
-
-class Thread(TaggedBase):
-    codec_data: (
-        Literal[
-            "OrderedSubject",
-            "References",
-        ]
-        | StrOther
-    )
-
-
-CapabilityType = (
-    Literal[
-        "Imap4Rev1",
-        "LoginDisabled",
-        "StartTls",
-        "Idle",
-        "MailboxReferrals",
-        "LoginReferrals",
-        "SaslTr",
-        "Enable",
-        "Quota",
-        "QuotaSet",
-        "LiteralPlus",
-        "LiteralMinus",
-        "Move",
-        "Id",
-        "Unselect",
-        "Metadata",
-        "MetadataServer",
-        "Binary",
-        "UidPlus",
-    ]
-    | Auth
-    | Compress
-    | QuotaRes
-    | Sort
-    | Thread
-    | StrOther
-)
+    allowed: Sequence[Charset]
 
 
 class Capability(TaggedBase):
@@ -134,20 +55,14 @@ class Metadata(TaggedBase):
 
 
 class AppendUid(TaggedBase):
-    class Uid(Base):
-        uid_validity: NoZeroUint
-        uid: NoZeroUint
-
-    codec_data: Uid
+    uid_validity: NoZeroUint
+    uid: NoZeroUint
 
 
 class CopyUid(TaggedBase):
-    class Uid(Base):
-        uid_validity: NoZeroUint
-        source: UidSet
-        destination: UidSet
-
-    codec_data: Uid
+    uid_validity: NoZeroUint
+    source: UidSet
+    destination: UidSet
 
 
 class CodeOther(TaggedBase, tag="Other"):

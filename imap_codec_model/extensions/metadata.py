@@ -1,6 +1,6 @@
 from typing import Literal
 
-from .core import AString, Base, LiteralType, NString, TaggedBase, Uint, Vec1
+from imap_codec_model.core import AString, LiteralType, NString, TaggedBase, Uint, Vec1
 
 
 class LongEntry(TaggedBase):
@@ -21,11 +21,8 @@ MetadataCode = (
 )
 
 class EntryValue(TaggedBase):
-    class EntryValueVal(Base):
-        entry: AString
-        value: NString | LiteralType
-
-    codec_data: EntryValueVal
+    entry: AString
+    value: NString | LiteralType
 
 MetadataResponse = Vec1[EntryValue] | Vec1[AString]
 
