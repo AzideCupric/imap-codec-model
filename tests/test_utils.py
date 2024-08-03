@@ -1,37 +1,35 @@
 import pytest
 
-from imap_codec_model.utils import reduce_codec_model, reshape_codec_dict, CodecDict
+from imap_codec_model.utils import reduce_codec_model, reshape_codec_dict, CodecDataModel
 
 
 @pytest.fixture(scope="module")
-def reshaped_dict() -> CodecDict:
+def reshaped_dict() -> CodecDataModel:
     return {
         "codec_model": "Status",
         "codec_data": {
             "codec_model": "Ok",
-            "codec_data": {
-                "tag": "a001",
-                "code": {"codec_model": "UnSeen", "codec_data": 17},
-                "text": "Message 17 is the first unseen message",
-                "more": [
-                    {
-                        "codec_model": "Items",
-                        "codec_data": [
-                            {"codec_model": "Name", "codec_data": "Apple"},
-                            {"codec_model": "Name", "codec_data": "Banana"},
-                        ],
-                    },
-                    {
-                        "codec_model": "Item",
-                        "codec_data": {"name": "Banana"},
-                    },
-                    {"age": 18},
-                    {
-                        "codec_model": "Buffer",
-                        "codec_data": "Hello, World!",
-                    },
-                ],
-            },
+            "tag": "a001",
+            "code": {"codec_model": "UnSeen", "codec_data": 17},
+            "text": "Message 17 is the first unseen message",
+            "more": [
+                {
+                    "codec_model": "Items",
+                    "codec_data": [
+                        {"codec_model": "Name", "codec_data": "Apple"},
+                        {"codec_model": "Name", "codec_data": "Banana"},
+                    ],
+                },
+                {
+                    "codec_model": "Item",
+                    "name": "Banana",
+                },
+                {"age": 18},
+                {
+                    "codec_model": "Buffer",
+                    "codec_data": "Hello, World!",
+                },
+            ],
         },
     }
 

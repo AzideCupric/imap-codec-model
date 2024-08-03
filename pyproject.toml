@@ -90,6 +90,7 @@ typeCheckingMode = "standard"
 reportPrivateImportUsage = false
 reportShadowedImports = false
 disableBytesTypePromotions = true
+enableExperimentalFeatures = true
 
 pythonPlatform = "All"
 pythonVersion = "3.10"
