@@ -3,7 +3,7 @@ import msgspec
 
 from imap_codec import GreetingCodec, Greeting as GreetingCodecModel
 
-from imap_codec_model.greeting import Greeting
+from imap_codec_model.models import Greeting
 from imap_codec_model.utils import reshape_codec_dict, reduce_codec_model
 
 
