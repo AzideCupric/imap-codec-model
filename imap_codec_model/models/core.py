@@ -9,7 +9,7 @@ Base = Struct
 """为非CodecModel的基类"""
 
 
-class TaggedBase(Struct, tag_field="codec_model", tag=lambda name: name.split(".")[-1]):
+class TaggedBase(Struct, tag_field="codec_model"):
     """为CodecModel的基类，tag_field指定了tag字段的名称为codec_model: <class name>，
     继承时不需要显式指定tag_field和codec_model字段
     """
