@@ -24,7 +24,13 @@ class EntryValue(TaggedBase):
     entry: AString
     value: NString | LiteralType
 
-MetadataResponse = Vec1[EntryValue] | Vec1[AString]
+class WithValues(TaggedBase):
+    codec_data: Vec1[EntryValue]
+
+class WithoutValues(TaggedBase):
+    codec_data: Vec1[AString]
+
+MetadataResponse = WithValues | WithoutValues
 
 Depth = Literal["Null", "One", "Infinity"]
 

@@ -124,7 +124,9 @@ class StatusBody(Base):
     text: str
 
 class Untagged(TaggedBase):
-    codec_data: StatusBody
+    kind: StatusKind
+    code: Code | None
+    text: str
 
 class Tagged(TaggedBase):
     tag: str
@@ -134,7 +136,8 @@ class Bye(TaggedBase):
     code: Code | None
     text: str
 
-Status = Untagged | Tagged | Bye
+class Status(TaggedBase):
+    codec_data: Untagged | Tagged | Bye
 
 class Basic(TaggedBase):
     code: Code | None
@@ -144,6 +147,7 @@ class Basic(TaggedBase):
 class Base64(TaggedBase):
     codec_data: Sequence[Uint]
 
-CommandContinuationRequest = Basic | Base64
+class CommandContinuationRequest(TaggedBase):
+    codec_data: Basic | Base64
 
 Response = Data | Status | CommandContinuationRequest
