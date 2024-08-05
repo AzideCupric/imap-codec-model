@@ -151,5 +151,7 @@ MessageDataItemName = (
 class Macro(TaggedBase):
     codec_data: Literal["Fast", "Full", "All"]
 
+class MessageDataItemNames(TaggedBase):
+    codec_data: Sequence[MessageDataItemName]
 
-MacroOrMessageDataItemNames = Macro | Sequence[MessageDataItemName]
+MacroOrMessageDataItemNames = Macro | MessageDataItemNames

@@ -1,8 +1,8 @@
 from typing import Literal
-from .core import NoZeroUint, TaggedBase, Base, Vec1
+from .core import NoZeroUint, TaggedBase, Vec1
 
-class Value(Base):
-    value: NoZeroUint
+class Value(TaggedBase):
+    codec_data: NoZeroUint
 
 SeqOrUid = Value | Literal["Asterisk"]
 
