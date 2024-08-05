@@ -138,7 +138,7 @@ def reshape_codec_dict(__input: Any) -> dict[str, Any]:
             return CodecDictModel({"codec_model": k, **reshaped_value})
         elif isinstance(__input, dict):
             return {k: _reshape_recursive(v) for k, v in __input.items()}
-        elif isinstance(__input, list):
+        elif isinstance(__input, list | tuple):
             return [_reshape_recursive(v) for v in __input]
         else:
             return __input
@@ -166,7 +166,7 @@ def reduce_codec_model(__input: Any) -> dict[str, Any]:
             return {__input["codec_model"]: _reduce_recursive(__input["codec_data"])}
         elif isinstance(__input, dict):
             return {k: _reduce_recursive(v) for k, v in __input.items()}
-        elif isinstance(__input, list):
+        elif isinstance(__input, list | tuple):
             return [_reduce_recursive(v) for v in __input]
         else:
             return __input

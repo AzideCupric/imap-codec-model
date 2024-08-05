@@ -1,4 +1,4 @@
-from typing import TypeVar, overload
+from typing import Any, TypeVar, overload
 from typing_extensions import assert_never
 
 import msgspec
@@ -68,3 +68,8 @@ def type_codec_encode(model: T_Model) -> Encoded:
             return ResponseCodec.encode(Response.from_dict(reshaped_dict))
         case _:
             assert_never(model) # type: ignore
+
+def model_dump(model: T_Model, reduce: bool = True) -> dict[str, Any]:
+    model_dict = msgspec.to_builtins(model)
+
+    return reduce_codec_model(model_dict) if reduce else model_dict
