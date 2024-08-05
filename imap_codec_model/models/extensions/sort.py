@@ -1,5 +1,5 @@
 from typing import Literal
-from imap_codec_model.core import Base
+from ..core import Base
 
 SortKey = Literal[
     "Arrival",

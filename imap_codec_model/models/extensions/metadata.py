@@ -1,6 +1,6 @@
 from typing import Literal
 
-from imap_codec_model.core import AString, LiteralType, NString, TaggedBase, Uint, Vec1
+from ..core import AString, LiteralType, NString, TaggedBase, Uint, Vec1
 
 
 class LongEntry(TaggedBase):

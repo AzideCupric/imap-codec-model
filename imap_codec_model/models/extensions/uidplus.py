@@ -1,4 +1,4 @@
-from imap_codec_model.core import NoZeroUint, TaggedBase, Vec1
+from ..core import NoZeroUint, TaggedBase, Vec1
 
 
 class Single(TaggedBase):

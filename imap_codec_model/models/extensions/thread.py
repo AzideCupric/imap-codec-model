@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Literal
 
-from imap_codec_model.core import StrOther, TaggedBase, NoZeroUint, Vec1, Vec2
+from ..core import StrOther, TaggedBase, NoZeroUint, Vec1, Vec2
 
 class Members(TaggedBase):
     prefix: Vec1[NoZeroUint]

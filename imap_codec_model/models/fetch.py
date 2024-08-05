@@ -2,7 +2,7 @@ from collections.abc import Sequence
 from datetime import datetime
 from typing import Literal
 
-from imap_codec_model.binary import Literal8
+from .binary import Literal8
 
 from .flag import FlagFetch
 from .envelope import EnvelopeStuct

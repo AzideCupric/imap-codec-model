@@ -1,5 +1,5 @@
 from typing import Literal
-from imap_codec_model.core import Base, StrOther, Uint
+from ..core import Base, StrOther, Uint
 
 
 Resource = Literal["Storage", "Message", "Mailbox", "AnnotationStorage"] | StrOther
