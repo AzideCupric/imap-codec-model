@@ -1,18 +1,21 @@
-from typing import Annotated, Literal, TypeVar
 from collections.abc import Sequence
+from typing import Literal, TypeVar, Annotated
 
-from msgspec import Struct, Meta
+from msgspec import Meta, Struct
 
 T = TypeVar("T")
 
 Base = Struct
-"""为非CodecModel的基类"""
+"""Base class for non-CodecModel structures."""
 
 
 class TaggedBase(Struct, tag_field="codec_model"):
-    """为CodecModel的基类，tag_field指定了tag字段的名称为codec_model: <class name>，
-    继承时不需要显式指定tag_field和codec_model字段
+    """Base class for CodecModel structures. The `tag_field` specifies that
+    the tag field name is `codec_model: <class name>`.
+    When inheriting, you do not need to explicitly specify the `tag_field`
+    or `codec_model` fields.
     """
+
     pass
 
 
@@ -23,7 +26,9 @@ class Atom(TaggedBase):
 class Quoted(TaggedBase):
     codec_data: str
 
+
 LiteralMode = Literal["Sync", "NonSync"]
+
 
 class LiteralType(TaggedBase, tag="Literal"):
     data: Sequence[int]
@@ -32,8 +37,10 @@ class LiteralType(TaggedBase, tag="Literal"):
 
 IString = Quoted | LiteralType
 
+
 class String(TaggedBase):
     codec_data: IString
+
 
 AString = Atom | String
 NString = IString | None
@@ -41,18 +48,20 @@ NString = IString | None
 Charset = Atom | Quoted
 
 NoZeroUint = Annotated[int, Meta(gt=0)]
-"""大于0的整数"""
+"""An integer greater than 0."""
 
 Uint = Annotated[int, Meta(ge=0)]
+"""An integer greater than or equal to 0."""
 
 QuotedChar = Annotated[str, Meta(max_length=1)]
-"""引号内的长度为1的字符串（字符）"""
+"""A string (character) of length 1 enclosed in quotes."""
 
 Vec1 = Annotated[Sequence[T], Meta(min_length=1)]
-"""至少包含一个元素的序列"""
+"""A sequence containing at least one element."""
 
 Vec2 = Annotated[Sequence[T], Meta(min_length=2)]
-"""至少包含两个元素的序列"""
+"""A sequence containing at least two elements."""
+
 
 class StrOther(TaggedBase, tag="Other"):
     codec_data: str

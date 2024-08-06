@@ -1,14 +1,12 @@
-from collections.abc import Sequence
-from datetime import datetime
 from typing import Literal
-
-from .binary import Literal8
+from datetime import datetime
+from collections.abc import Sequence
 
 from .flag import FlagFetch
-from .envelope import EnvelopeStuct
+from .binary import Literal8
 from .body import BodyStructureType
-from .core import AString, NString, NoZeroUint, TaggedBase, Uint, Vec1
-
+from .envelope import EnvelopeStuct
+from .core import Uint, Vec1, AString, NString, NoZeroUint, TaggedBase
 
 PartType = Vec1[NoZeroUint]
 
@@ -151,7 +149,9 @@ MessageDataItemName = (
 class Macro(TaggedBase):
     codec_data: Literal["Fast", "Full", "All"]
 
+
 class MessageDataItemNames(TaggedBase):
     codec_data: Sequence[MessageDataItemName]
+
 
 MacroOrMessageDataItemNames = Macro | MessageDataItemNames
