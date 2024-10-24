@@ -28,11 +28,11 @@ post_install = "pre-commit install"
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "ruff>=0.5.7",
+    "ruff>=0.7.1",
     "isort>=5.13.2",
     "nonemoji>=0.1.4",
     "pre-commit>=3.8.0",
-    "pytest>=8.3.2",
+    "pytest>=8.3.3",
 ]
 
 [tool.isort]
